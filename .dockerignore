@@ -1,0 +1,7 @@
+__pycashe__
+Dockerfile
+docker-compose*
+mysql
+mysql_config
+.venv
+venv
