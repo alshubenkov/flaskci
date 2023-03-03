@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+ web:
+  build:
+   context: .
+  ports:
+  - 8000:5000
+  networks: 
+  - mysqlnet
+  volumes:
+  - ./:/app
+
+ mysqldb:
+  image: mysql:8.0
+  ports:
+  - 3306:3306
+  networks: 
+  - mysqlnet
+  environment:
+  - MYSQL_ROOT_PASSWORD=p@ssw0rd1
+  volumes:
+  - mysql:/app/data/
+
+networks:
+  mysqlnet:
+   driver: bridge
+
+volumes:
+  mysql:
+
